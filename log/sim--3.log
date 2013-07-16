@@ -1,0 +1,38 @@
+Sender: LSF System <lsf@node1153>
+Subject: Job 1767474: <bin/simulateHighthroughputExperiments/run_simulateHighthroughputExperiments.sh /msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80 seed 3 parameterValsPath /msc/neurospora/src/WholeCell/input/simulateHT.sh simPath output/sim--3.mat> Exited
+
+Job <bin/simulateHighthroughputExperiments/run_simulateHighthroughputExperiments.sh /msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80 seed 3 parameterValsPath /msc/neurospora/src/WholeCell/input/simulateHT.sh simPath output/sim--3.mat> was submitted from host <node1379> by user <zucker> in cluster <cromwell>.
+Job was executed on host(s) <node1153>, in queue <week>, as user <zucker> in cluster <cromwell>.
+</home/unix/zucker> was used as the home directory.
+</msc/neurospora/src/WholeCell> was used as the working directory.
+Started at Sat Jul 13 09:13:16 2013
+Results reported at Sat Jul 13 09:13:33 2013
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+bin/simulateHighthroughputExperiments/run_simulateHighthroughputExperiments.sh /msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80 seed 3 parameterValsPath /msc/neurospora/src/WholeCell/input/simulateHT.sh simPath output/sim--3.mat
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time   :     12.64 sec.
+    Max Memory :         3 MB
+    Max Swap   :        39 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) follows:
+
+------------------------------------------
+Setting up environment variables
+---
+LD_LIBRARY_PATH is .:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/runtime/glnxa64:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/bin/glnxa64:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/sys/os/glnxa64:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/sys/java/jre/glnxa64/jre/lib/amd64/server:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/sys/java/jre/glnxa64/jre/lib/amd64/client:/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80/sys/java/jre/glnxa64/jre/lib/amd64
+Error using simulateHighthroughputExperiments (line 149)
+Invalid input file format ".sh"
+
+simulateHighthroughputExperiments:invalidFileFormat
