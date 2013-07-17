@@ -1,6 +1,6 @@
 import os, sys
 
-ht = 'bin/simulateHighthroughputExperiments/run_simulateHighthroughputExperiments.sh'
+ht = '/msc/neurospora/src/WholeCell/bin/simulateHighthroughputExperiments/run_simulateHighthroughputExperiments.sh'
 mcr = '/msc/neurospora/src/MATLAB/MATLAB_Compiler_Runtime/v80'
 genesTusRxns = [
     'MG_006', 'TU_003', 'Tmk',
