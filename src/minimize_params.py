@@ -16,7 +16,7 @@ oldRxns = dict([(rxn, m.getVarByName(rxn).X) for rxn in rxns])
 
 m.setObjective( gurobipy.quicksum([m.getVarByName(rxn) for rxn in rxns]), gurobipy.GRB.MINIMIZE )
 growth = m.getVarByName('Growth')
-growth.setAttr('lb', growth.X*0.67 )
+growth.setAttr('lb', growth.X*0.75 )
 m.update()
 m.optimize()
 newRxns = dict([(rxn, m.getVarByName(rxn).X) for rxn in rxns])
@@ -27,11 +27,6 @@ for rxn in rxns:
     m.getVarByName(rxn).ub = newRxns[rxn]
 m.update()
 m.optimize()
-
-
-
-
-
 
 def print_rxns( newRxns, oldRxns, renewedFlux ):
     print "Rxn\tNewFlux\tOldFlux\tMultiplier"
