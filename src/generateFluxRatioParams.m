@@ -51,11 +51,9 @@ sim.applyAllParameters(originalParams);
 for i = 1:size(genesTusRxns, 1)
   rxnId = genesTusRxns{i, 3};
   tuId = genesTusRxns{i, 2 };
-  setfield(newRnaPolTuBindingProbs,tuId,getfield(fluxRatio,rxnId)* ...
-                         rnaPolTuBindingProbs.(tuId));
-  setfield(newRnaHalfLives,tuId,getfield(fluxRatio,rxnId)* ...
-                        rnaHalfLives.(tuId));
-  setfield(newRxnKinetics,rxnId,struct('for',getfield(fluxRatio,rxnId)*rxnKinetics.(rxnId).for));
+  newRnaPolTuBindingProbs.(tuId)=fluxRatio.(rxnId)*rnaPolTuBindingProbs.(tuId);
+  newRnaHalfLives.(tuId) = fluxRatio.(rxnId)*rnaHalfLives.(tuId);
+  newRxnKinetics.(rxnId).for = fluxRatio.(rxnId)*rxnKinetics.(rxnId).for;
 end
 
 for j = 1:numel(parameterTypes)
