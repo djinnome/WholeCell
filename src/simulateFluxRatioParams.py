@@ -27,7 +27,7 @@ paramfiles = ['parameters_fluxRatio_HalfLife.mat', 'parameters_fluxRatio_PromAff
 inputdir = '/msc/neurospora/src/WholeCell/input'
 outputdir = '/msc/neurospora/src/WholeCell/output'
 logdir  = '/msc/neurospora/src/WholeCell/log'
-bsub = 'bsub -o %s/sim-%%s-%%d.log -P %s -q %s' % (logdir , 'WholeCell', 'week')
+bsub = 'bsub -r -o %s/sim-%%s-%%d.log -P %s -q %s' % (logdir , 'WholeCell', 'week')
 for param in paramfiles:
     for i in range(8):
         run = "%s %s %s seed %d parameterValsPath %s/%s simPath output/sim-%s-%d.mat" % (bsub % (param[10:-4], i+1), ht, mcr, i+1, inputdir, param,  param[10:-4], i+1)

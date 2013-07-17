@@ -1,0 +1,85 @@
+
+Gurobi 5.0.0 (linux64) logging started Wed Jul 17 10:28:49 2013
+
+Read LP format model from file /msc/neurospora/src/WholeCell/data/metabolism.full.mmol-gDCW-h.gurobi.lp
+Reading time = 0.06 seconds
+(null): 1156 rows, 1274 columns, 3368 nonzeros
+Optimize a model with 1156 rows, 1274 columns and 3368 nonzeros
+Presolve removed 1085 rows and 1151 columns
+Presolve time: 0.01s
+Presolved: 71 rows, 123 columns, 592 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.2012815e-02   1.517578e+11   0.000000e+00      0s
+      91    2.1936463e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 91 iterations and 0.02 seconds
+Optimal objective  2.193646278e-02
+Warning: unscaled primal violation = 1.33354e-05 and residual = 1.33354e-05
+Optimize a model with 1156 rows, 1274 columns and 3368 nonzeros
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -2.6617529e+11   1.461521e+13   0.000000e+00      0s
+     146    5.3170650e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 146 iterations and 0.01 seconds
+Optimal objective  5.317065015e+00
+Warning: unscaled primal violation = 5.72205e-06 and residual = 5.72205e-06
+Read LP format model from file /msc/neurospora/src/WholeCell/data/metabolism.full.mmol-gDCW-h.gurobi.lp
+Reading time = 0.04 seconds
+(null): 1156 rows, 1274 columns, 3368 nonzeros
+Optimize a model with 1156 rows, 1274 columns and 3368 nonzeros
+Presolve removed 1084 rows and 1149 columns
+Presolve time: 0.00s
+Presolved: 72 rows, 125 columns, 593 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.4603826e-01   7.640831e+10   0.000000e+00      0s
+     128    1.6356624e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 128 iterations and 0.01 seconds
+Optimal objective  1.635662448e-02
+Warning: unscaled primal violation = 4.5876e-06 and residual = 4.5876e-06
+
+Gurobi 5.0.0 (linux64) logging started Wed Jul 17 10:30:07 2013
+
+Read LP format model from file /msc/neurospora/src/WholeCell/data/metabolism.full.mmol-gDCW-h.gurobi.lp
+Reading time = 0.07 seconds
+(null): 1156 rows, 1274 columns, 3368 nonzeros
+Optimize a model with 1156 rows, 1274 columns and 3368 nonzeros
+Presolve removed 1085 rows and 1151 columns
+Presolve time: 0.01s
+Presolved: 71 rows, 123 columns, 592 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.2012815e-02   1.517578e+11   0.000000e+00      0s
+      91    2.1936463e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 91 iterations and 0.02 seconds
+Optimal objective  2.193646278e-02
+Warning: unscaled primal violation = 1.33354e-05 and residual = 1.33354e-05
+Optimize a model with 1156 rows, 1274 columns and 3368 nonzeros
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -2.6617529e+11   1.461521e+13   0.000000e+00      0s
+     146    5.3170650e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 146 iterations and 0.01 seconds
+Optimal objective  5.317065015e+00
+Warning: unscaled primal violation = 5.72205e-06 and residual = 5.72205e-06
+Read LP format model from file /msc/neurospora/src/WholeCell/data/metabolism.full.mmol-gDCW-h.gurobi.lp
+Reading time = 0.07 seconds
+(null): 1156 rows, 1274 columns, 3368 nonzeros
+Optimize a model with 1156 rows, 1274 columns and 3368 nonzeros
+Presolve removed 1084 rows and 1149 columns
+Presolve time: 0.00s
+Presolved: 72 rows, 125 columns, 593 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.4603826e-01   7.640831e+10   0.000000e+00      0s
+     128    1.6356624e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 128 iterations and 0.01 seconds
+Optimal objective  1.635662448e-02
+Warning: unscaled primal violation = 4.5876e-06 and residual = 4.5876e-06
+
+Gurobi 5.0.0 (linux64) logging started Wed Jul 17 10:38:11 2013
+
