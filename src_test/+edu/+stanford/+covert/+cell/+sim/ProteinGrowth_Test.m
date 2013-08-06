@@ -18,7 +18,8 @@ classdef ProteinGrowth_Test < TestCase
             
             %% simulate
             iterMax = 31000;
-            [initGrowth, initMetabolicEnzymes, growths, cumGrowth, rnaExp, pmExp, pcExp, ...
+
+	    [initGrowth, initMetabolicEnzymes, growths, cumGrowth, rnaExp, pmExp, pcExp, ...
                 matureRNACounts, matureMonCounts, matureCpxCounts] = this.simulateExponentialGrowth(iterMax, 0, 0, 1, 1000);
             
             %% references

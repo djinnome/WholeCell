@@ -23,7 +23,7 @@ parameterVals = {
     '05X': 0.5,
     '2X':  2.0
     } 
-paramfiles = [  'parameters_fluxRatio_RxnKcat.mat'] #'parameters_fluxRatio_HalfLife.mat', 'parameters_fluxRatio_PromAffinity.mat',
+paramfiles = [  'parameters_fluxRatio_RxnKcat.mat','parameters_fluxRatio_HalfLife.mat', 'parameters_fluxRatio_PromAffinity.mat']
 inputdir = '/msc/neurospora/src/WholeCell/input'
 outputdir = '/msc/neurospora/src/WholeCell/output'
 logdir  = '/msc/neurospora/src/WholeCell/log'

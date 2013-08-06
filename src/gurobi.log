@@ -83,3 +83,6 @@ Warning: unscaled primal violation = 4.5876e-06 and residual = 4.5876e-06
 
 Gurobi 5.0.0 (linux64) logging started Wed Jul 17 10:38:11 2013
 
+Read LP format model from file ../data/metabolism.full.mmol-gDCW-h.gurobi.lp
+Reading time = 0.03 seconds
+(null): 1156 rows, 1274 columns, 3368 nonzeros

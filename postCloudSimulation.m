@@ -95,26 +95,26 @@ if saveParameterVals
 end
 
 %% Post job
-type = 'dream_sim';
+type = 'dream_sim'
 parameters = [
     struct('name', 'notification_email', 'value', BitMill.getNotificationEmail())
-    ]; %#ok<NBRAK>
+    ] %#ok<NBRAK>
 inputs = [
     struct('name', 'parameters', 'url', remoteParameterValsPath)
-    ]; %#ok<NBRAK>
+    ] %#ok<NBRAK>
 outputs = [
     struct('name', 'predictions', 'url', remotePredictionsPath)
     struct('name', 'distances', 'url', remoteDistancesPath)    
     struct('name', 'stdout', 'url', remoteStdoutPath)
     struct('name', 'stderr', 'url', remoteStderrPath)
-    ];
+    ]
 
 [jobId, status, errMsg] = BitMill.post(...
     'type', type, ...
     'parameters', parameters, ...
     'inputs', inputs, ...
     'outputs', outputs ...
-    );
+    )
 if isempty(jobId) || status ~= 0
     throw(MException('postCloudSimulationStatus:error', 'Unable to post simulation job to BitMill: %s', errMsg))
 end

@@ -15,11 +15,6 @@ genesTusRxns = {
     'MG_431' 'TU_307' 'TpiA'
     };
 
-% fluxRatio = struct('TpiA', 0.10950078509522165, 'Tmk', 0.67000000000000004, ...
-%                    'AckA', 0.10907225186548129, 'CmkA2', 0.66999999999999071, ...
-%                    'AceE', 0.10908082824118392, 'Eno', 0.10908084168275271, ...
-%                    'Fba', 0.10946107633831005, 'Pta', 0.10907225186548129, ...
-%                    'MetK', 0.67000000000000015, 'Pgi', 0.11105379245342617); ...
     
 fluxRatio = struct('TpiA', 0.12262036324436351, 'Tmk', 0.75000000000000011, ...
                    'AckA', 0.12214087397029504, 'CmkA2', 0.74999999999997413, ...
@@ -32,7 +27,7 @@ parameterTypes = {
     'HalfLife'
     'RxnKcat'
     };
-baseDir = '/msc/neurospora/src/WholeCell/input';
+baseDir = '/Users/zucker/src/WholeCell/input';
 sim = edu.stanford.covert.cell.sim.util.CachedSimulationObjectUtil.load();
 
 originalParams = sim.getAllParameters();
@@ -51,9 +46,9 @@ sim.applyAllParameters(originalParams);
 for i = 1:size(genesTusRxns, 1)
   rxnId = genesTusRxns{i, 3};
   tuId = genesTusRxns{i, 2 };
-  newRnaPolTuBindingProbs.(tuId)=fluxRatio.(rxnId)*rnaPolTuBindingProbs.(tuId);
-  newRnaHalfLives.(tuId) = fluxRatio.(rxnId)*rnaHalfLives.(tuId);
-  newRxnKinetics.(rxnId).for = fluxRatio.(rxnId)*rxnKinetics.(rxnId).for;
+  setfield(newRnaPolTuBindingProbs, tuId, fluxRatio.(rxnId)*rnaPolTuBindingProbs.(tuId));
+  setfield(newRnaHalfLives, tuId,fluxRatio.(rxnId)*rnaHalfLives.(tuId));
+  setfield(newRxnKinetics, rxnId, struct('for', fluxRatio.(rxnId)*rxnKinetics.(rxnId).for));
 end
 
 for j = 1:numel(parameterTypes)

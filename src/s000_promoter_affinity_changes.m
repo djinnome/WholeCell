@@ -55,8 +55,8 @@ parameterTypes = {
 gene_ids = sim.gene.wholeCellModelIDs;
   
 % Specify path to averaged-output
-basedir = 'C:\Users\Alex\Documents\Projects\DREAM8\WholeCell-parameter-estimation-DREAM-challenge-2013\';
-outputdir = [basedir 'individual_perturbations\averaged_output\'];
+basedir = '/Users/zucker/src/WholeCell/';
+outputdir = [basedir '/output/'];
 filename = {};
 
 % Unmodified model (original params) and mutant data

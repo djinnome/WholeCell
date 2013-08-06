@@ -48,7 +48,11 @@ predDist = (1/length(allvars)) * sum(allvars);
 % example, this function will calculate the distance between tru and est
 % for the rnaSeq or protArray sub-struct.
 function dists = calcSubDist (mean_tru, mean_est, std_tru)
+len = min(length(mean_tru), length(mean_est));
+mean_tru = mean_tru(1:len);
+mean_est = mean_est(1:len);
+std_tru = std_tru(1:len);
 assert(length(mean_tru) == length(mean_est));
 ind = (std_tru ~= 0); % avoid divide by zero
 dists = ((mean_tru(ind) - mean_est(ind))./std_tru(ind)).^2;
-dists(isnan(dists)) = 0; % might be an unnecessary safeguard
+dists = dists(~isnan(dists)); % might be an unnecessary safeguard
