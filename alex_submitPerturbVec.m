@@ -68,4 +68,4 @@ bucketUrl = 's3://alexander.williams.1967383.wcpe.sagebase.org';
     );
 
 % Save parameters locally for later reference 
-save(['job-13-0' month '-' day],'jobId','status','errMsg','perturbVec','simName')
+save(['job-13-0' month '-' day '-' hour],'jobId','status','errMsg','perturbVec','simName')

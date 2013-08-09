@@ -9,30 +9,30 @@
 %  -- This script is called by alex_runWholeCell_inf after a simulation
 %       finishes.
 
-load whole-cell-table.mat
-w = what('./output');
+load averaged-whole-cell-table.mat
+w = what('./averaged_output');
 
 for a = 1:length(w.mat)
-  if ~any(strcmp(whole_cell_table.filename,w.mat{a}))
+  if ~any(strcmp(avg_cell_table.filename,w.mat{a}))
     % Calculate prediction distance
-    est = load(['./output/' w.mat{a}]);
+    est = load(['./averaged_output/' w.mat{a}]);
     if isfield(est,'perturbVec')
       tru = load('./mutant_WT_avgData');
       predDist = alex_calcPredDist(tru,est);
       est.predDist = predDist;
-      save(['./output/' w.mat{a}],'predDist','-append');
+      save(['./averaged_output/' w.mat{a}],'predDist','-append');
       % Incorporate new information into the table
-      whole_cell_table.perturbVecs = [whole_cell_table.perturbVecs est.perturbVec];
-      whole_cell_table.predDist = [whole_cell_table.predDist; est.predDist];
-      whole_cell_table.number = [whole_cell_table.number; length(whole_cell_table.number)+1];
-      whole_cell_table.filename{end+1,1} = w.mat{a};
+      avg_cell_table.perturbVecs = [avg_cell_table.perturbVecs est.perturbVec];
+      avg_cell_table.predDist = [avg_cell_table.predDist; est.predDist];
+      avg_cell_table.number = [avg_cell_table.number; length(avg_cell_table.number)+1];
+      avg_cell_table.filename{end+1,1} = w.mat{a};
       % Sort everything based on whole_cell_table.predDist
-      [~,I] = sort(whole_cell_table.predDist);
-      whole_cell_table.predDist = whole_cell_table.predDist(I);
-      whole_cell_table.perturbVecs = whole_cell_table.perturbVecs(:,I);
-      whole_cell_table.number = whole_cell_table.number(I);
-      whole_cell_table.filename = whole_cell_table.filename(I);
+      [~,I] = sort(avg_cell_table.predDist);
+      avg_cell_table.predDist = avg_cell_table.predDist(I);
+      avg_cell_table.perturbVecs = avg_cell_table.perturbVecs(:,I);
+      avg_cell_table.number = avg_cell_table.number(I);
+      avg_cell_table.filename = avg_cell_table.filename(I);
     end
   end
 end
-save('whole-cell-table.mat','whole_cell_table');
+save('averaged-whole-cell-table.mat','avg_cell_table');

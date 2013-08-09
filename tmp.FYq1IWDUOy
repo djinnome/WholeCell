@@ -1,0 +1,30 @@
+{
+  "id" : "6fc8bfa7-41ae-4f2a-942e-5a6d5fcedbf8",
+  "pool" : "alexander.williams.1967383.wcpe.sagebase.org",
+  "submitted" : "2013-07-31T06:10:21.853-0700",
+  "status" : "pending",
+  "details" : {
+    "type" : "dream_sim",
+    "parameters" : [ {
+      "name" : "notification_email",
+      "value" : "alex.h.willia@gmail.com"
+    } ],
+    "inputs" : [ {
+      "name" : "parameters",
+      "url" : "https://alexander.williams.1967383.wcpe.sagebase.org.s3.amazonaws.com/perturbVec_7_31_9.parameters.mat"
+    } ],
+    "outputs" : [ {
+      "name" : "predictions",
+      "url" : "https://alexander.williams.1967383.wcpe.sagebase.org.s3.amazonaws.com/perturbVec_7_31_9.predictions.mat"
+    }, {
+      "name" : "distances",
+      "url" : "https://alexander.williams.1967383.wcpe.sagebase.org.s3.amazonaws.com/perturbVec_7_31_9.distances.mat"
+    }, {
+      "name" : "stdout",
+      "url" : "https://alexander.williams.1967383.wcpe.sagebase.org.s3.amazonaws.com/perturbVec_7_31_9.out"
+    }, {
+      "name" : "stderr",
+      "url" : "https://alexander.williams.1967383.wcpe.sagebase.org.s3.amazonaws.com/perturbVec_7_31_9.err"
+    } ]
+  }
+}

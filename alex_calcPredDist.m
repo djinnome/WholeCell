@@ -50,6 +50,5 @@ predDist = (1/length(allvars)) * sum(allvars);
 function dists = calcSubDist (mean_tru, mean_est, std_tru)
 assert(length(mean_tru) == length(mean_est));
 ind = (std_tru ~= 0); % avoid divide by zero
-sum(ind)
 dists = ((mean_tru(ind) - mean_est(ind))./std_tru(ind)).^2;
 dists(isnan(dists)) = 0; % might be an unnecessary safeguard

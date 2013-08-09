@@ -59,27 +59,28 @@ for i_gene = 1:10
   a = a+3;
 end
 
-% Run the whole-cell simulation
-seed = randi(220516568);
-sim.applyOptions('lengthSec', 65000, 'seed', seed);
-
-parameterVals = sim.getAllParameters();
-simName = 'perturb-vec-median2';
-bucketUrl = 's3://alexander.williams.1967383.wcpe.sagebase.org';
-[jobId, status, errMsg] = postCloudSimulation(...
-    'simName', simName, ...
-    'bucketUrl', bucketUrl, ...
-    'parameterVals', parameterVals ...
-    );
-
-save('job-13-07-27','jobId','status','errMsg','simName','perturbVec');
-
-filename = sprintf('whole-cell-sim-%06i-%09i.mat',length(dir('./output'))-2,seed);
-simulateHighthroughputExperiments(...
+% Run the whole-cell simulation three times and save in "output"
+dirLen = length(dir('./output'))-2;
+tag = randi(1e7);
+for trial = 1:3
+  seed = randi(220516568);
+  sim.applyOptions('lengthSec', 65000, 'seed', seed);
+  
+  parameterVals = sim.getAllParameters();
+  
+  filename = sprintf('whole-cell-sim-%06i-%08i-%09i-%i.mat',dirLen,tag,seed,trial);
+  simulateHighthroughputExperiments(...
     'seed', seed, ...
     'parameterVals', parameterVals, ...
     'simPath', ['output/' filename] ...
     );
+end
+
+% Average the three simulations and save in "averaged_output"
+averageHighthroughputExperiments(...
+   'simPathPattern', sprintf('output/whole-cell-sim-%06i-%08i-*.mat',dirLen,tag), ...
+   'avgValsPath', sprintf('averaged_output/averaged_sim-%06i-%08i-new.mat',dirLen,tag) ...
+   );
 
 % Append perturb vector to file
-save(['./output/' filename],'perturbVec','-append')
+save(sprintf('./averaged_output/averaged_sim-%06i-%08i.mat',dirLen,tag),'perturbVec','-append')

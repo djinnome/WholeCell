@@ -1,11 +1,13 @@
 function f000_predictPerturbs_pairwiseCorr(datatype)
 
 % Load rnaArray.mean for all simulations.
-basedir = 'C:\Users\Alex\Documents\GitHub\WholeCell\';
-outputdir = [basedir 'output\'];
-unmod = load([basedir 'individual_perturbations\averaged_output\averaged_sim-0.mat']);
+basedir = '/home/alex/WholeCell/';
+outputdir = [basedir 'output/'];
+%unmod = load([basedir 'individual_perturbations/averaged_output/averaged_sim-0.mat']);
+%good_ind = unmod.(datatype).std(:) ~= 0;
 W = what(outputdir);
-good_ind = unmod.(datatype).std(:) ~= 0;
+S = load([outputdir W.mat{1}]);
+good_ind = S.(datatype).std(:) ~= 0;
 data_stacked = nan(length(W.mat)+1,sum(good_ind)); % matrix holding all rnaArray data
 pV_stacked = nan(30,length(W.mat)); % matrix holding all perturbations
 

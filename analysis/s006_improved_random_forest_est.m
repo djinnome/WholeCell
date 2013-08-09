@@ -1,7 +1,6 @@
-
-for zzz = 1:100
+for zzz = 1:5
   clear; close all; clc
-  addpath('C:\Users\Alex\Documents\GitHub\WholeCell')
+  %addpath('C:\Users\Alex\Documents\GitHub\WholeCell')
   datatypes = {'metConcs'
     'dnaSeq'
     'rnaSeq'
