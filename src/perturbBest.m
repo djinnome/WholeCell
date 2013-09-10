@@ -22,7 +22,6 @@ parameterVals = {
     '2X'  2.0
     };    
 
-sim = CachedSimulationObjectUtil.load();
 
 bestParameters = load(bestFile);
 sim.applyAllParameters(bestParameters);
