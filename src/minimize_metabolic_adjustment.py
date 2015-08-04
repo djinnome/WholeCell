@@ -8,25 +8,28 @@ def print_rxns( newRxns, oldRxns ):
     return ratios
 
 rxns = ['Tmk', 'Fba', 'MetK', 'Pgi', 'AceE', 'Pta', 'CmkA2', 'AckA', 'Eno', 'TpiA', 'Growth']
-lpfile = '/msc/neurospora/src/WholeCell/data/metabolism.full.mmol-gDCW-h.gurobi.lp'
+lpfile = '/Users/zucker/src/WholeCell/data/metabolism.full.mmol-gDCW-h.gurobi.lp'
 m = gurobipy.read(lpfile)
 m.optimize()
 
 # Store WT flux predictions into a dictionary
 wtFlux = dict([(rxn.VarName, rxn.X) for rxn in m.getVars()])
-
 # Store mutant fluxes predictions into a dictionary
-ffp = ffparser.FFParser(
-mutantFlux = dict([(rxn['Rxn'], float(rxn['Flux'])) for rxn in ffp.parse('../data/gold_fluxes.txt')[1:]])
+ffp = ffparser.FFParser()
+fluxScaleFactor = 0.0015
+mutantFlux = dict([(rxn['Rxn'], fluxScaleFactor*float(rxn['Flux'])) for rxn in ffp.parse('../data/gold_fluxes.txt')[1:]])
 
 #  f(x) = Lx + x^T*Q*x
 # minimize the perturbed reaction fluxes subject to the constraint that growth rate is 3/4 wild type.
 moma = gurobipy.quicksum([-mutantFlux[rxn]*m.getVarByName(rxn) for rxn in mutantFlux]) + gurobipy.quicksum([m.getVarByName(rxn)*m.getVarByName(rxn) for rxn in mutantFlux])
 
 
+growth = m.getVarByName('Growth')
+growth.setAttr('lb', wtFlux['Growth']*0.75 )
 
 
 m.setObjective( moma , gurobipy.GRB.MINIMIZE )
+m.setParam('BarHomogeneous', 1)
 m.update()
 m.optimize()
 
